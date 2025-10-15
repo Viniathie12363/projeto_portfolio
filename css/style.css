@@ -1,0 +1,120 @@
+*{
+    font-family: "Inter", sans-serif;;
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --cor-mais-escura: #050426;
+    --cor-escura:#0A0840;
+    --cor-principal:#403BBF;
+    --cor-clara:#251973;
+    --cor-mais-clara: #f4f4f4;
+    --vidro: rgba(207, 201, 242, 0.15);
+    --fonte-títulos:"Press Start 2P", system-ui;
+    --fonte-cabecalho: "Zen Dots", sans-serif;
+    --fonte-padrao: "Inter", sans-serif;
+}
+
+html{
+    background-color: var(--cor-mais-escura);
+    color: var(--cor-mais-clara);
+}
+
+.navegacao{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100000;
+    background-color: var(--vidro);
+    text-align: justify;
+       
+}
+
+.lista-navegacao{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.link-navegacao{
+    font-family: var(--fonte-cabecalho);
+    color: var(--cor-mais-clara);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    font-weight: 800;
+}
+
+.link-navegacao::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--cor-principal);
+    transition: transform 0.3s ease-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.link-navegacao:hover::after,.link-navegacao:focus::after{
+    transform: scaleX(1);
+}
+
+.opcao-navegacao{
+    list-style: none;
+
+}
+
+
+
+.sobre{
+    margin: 10px auto;
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.foto-de-perfil{
+    margin: 10px 0;
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: 50% 35%;
+    border: 3px solid var(--cor-mais-clara);
+    box-shadow: 5px 0px 32px 16px rgba(6,6,13,0.27);
+}
+
+.titulo-perfil{
+    font-family: var(--fonte-títulos);
+    font-size: 250%;
+    color: var(--cor-principal);
+    margin: 3vh auto;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(244,244,244,0.86);
+}
+
+.texto-sobre{
+
+    color: var(--cor-mais-clara);
+    text-indent: 1.5em;
+    max-width: 80%;
+    text-align: justify;
+    padding: 2px 0;
+
+}
+
+.link-avulso{
+    color: var(--cor-principal);
+    text-decoration: none;
+    border-radius: 50%;
+}
+
