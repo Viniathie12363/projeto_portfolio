@@ -1,120 +1,241 @@
-*{
-    font-family: "Inter", sans-serif;;
-    padding: 0;
-    margin: 0;
-}
-
-:root{
+/* --- GERAL E VARIÁVEIS --- */
+:root {
     --cor-mais-escura: #050426;
-    --cor-escura:#0A0840;
-    --cor-principal:#403BBF;
-    --cor-clara:#251973;
+    --cor-escura: #0A0840;
+    --cor-principal: #403BBF;
+    --cor-clara: #251973;
     --cor-mais-clara: #f4f4f4;
     --vidro: rgba(207, 201, 242, 0.15);
-    --fonte-títulos:"Press Start 2P", system-ui;
+    --fonte-titulos: "Press Start 2P", system-ui;
     --fonte-cabecalho: "Zen Dots", sans-serif;
     --fonte-padrao: "Inter", sans-serif;
 }
 
-html{
-    background-color: var(--cor-mais-escura);
-    color: var(--cor-mais-clara);
+* {
+    font-family: var(--fonte-padrao);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.navegacao{
+html {
+    background-color: var(--cor-mais-escura);
+    color: var(--cor-mais-clara);
+    scroll-behavior: smooth; 
+}
+
+/* --- NAVEGAÇÃO (MOBILE FIRST) --- */
+
+.navegacao {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100000;
+    z-index: 1000;
     background-color: var(--vidro);
-    text-align: justify;
-       
-}
-
-.lista-navegacao{
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
-    padding: 10px 0;
-    overflow: hidden;
 }
 
-.link-navegacao{
+/* O botão do menu hambúrguer */
+.menu-hamburguer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+/* As linhas do ícone */
+.menu-hamburguer .linha {
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--cor-mais-clara);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+/* A lista de links no mobile (escondida por padrão) */
+.lista-navegacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    background-color: var(--cor-escura);
+    height: 100vh;
+    width: 70%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Mostra o menu quando ele tem a classe 'ativo' */
+.lista-navegacao.ativo {
+    transform: translateX(0);
+}
+
+.link-navegacao {
     font-family: var(--fonte-cabecalho);
     color: var(--cor-mais-clara);
     text-decoration: none;
-    position: relative;
-    display: inline-block;
+    font-size: 1.5rem;
     font-weight: 800;
 }
 
-.link-navegacao::after{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--cor-principal);
-    transition: transform 0.3s ease-out;
-    transform: scaleX(0);
-    transform-origin: left;
+/* Animação do ícone para "X" quando o menu está ativo */
+.menu-hamburguer.ativo .linha:nth-child(1) {
+    transform: rotate(45deg);
 }
 
-.link-navegacao:hover::after,.link-navegacao:focus::after{
-    transform: scaleX(1);
+.menu-hamburguer.ativo .linha:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
 }
 
-.opcao-navegacao{
-    list-style: none;
-
+.menu-hamburguer.ativo .linha:nth-child(3) {
+    transform: rotate(-45deg);
 }
 
+/* --- CONTEÚDO PRINCIPAL (SOBRE) --- */
 
-
-.sobre{
-    margin: 10px auto;
+.sobre {
+    margin: 0 auto;
+    padding: 10px 5%;
     display: flex;
-    flex-direction:column ;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    text-align: center;
 }
 
-.foto-de-perfil{
+.foto-de-perfil {
     margin: 10px 0;
-    width: 450px;
-    height: 450px;
+    width: 280px; /* Tamanho base para mobile */
+    height: 280px;
     object-fit: cover;
     border-radius: 50%;
     object-position: 50% 35%;
     border: 3px solid var(--cor-mais-clara);
-    box-shadow: 5px 0px 32px 16px rgba(6,6,13,0.27);
+    box-shadow: 5px 0px 32px 16px rgba(6, 6, 13, 0.27);
 }
 
-.titulo-perfil{
-    font-family: var(--fonte-títulos);
-    font-size: 250%;
+.titulo-perfil {
+    font-family: var(--fonte-titulos);
+    font-size: 1.8rem; /* Tamanho base para mobile */
     color: var(--cor-principal);
     margin: 3vh auto;
-    text-align: center;
-    text-shadow: 1px 1px 0px rgba(244,244,244,0.86);
+    text-shadow: 1px 1px 0px rgba(244, 244, 244, 0.86);
 }
 
-.texto-sobre{
-
+.texto-sobre {
     color: var(--cor-mais-clara);
     text-indent: 1.5em;
-    max-width: 80%;
+    max-width: 90%; /* Largura base para mobile */
     text-align: justify;
-    padding: 2px 0;
-
+    padding: 5px 0;
+    line-height: 1.6; /* Melhora a legibilidade */
 }
 
-.link-avulso{
+.link-avulso {
     color: var(--cor-principal);
     text-decoration: none;
-    border-radius: 50%;
+    font-weight: bold;
 }
 
+/* --- BREAKPOINTS RESPONSIVOS --- */
+
+/* Telas de Tablet e Desktop (a partir de 769px) */
+@media screen and (min-width: 769px) {
+    
+    /* Esconde o botão hambúrguer */
+    .menu-hamburguer {
+        display: none;
+    }
+
+    .navegacao {
+        justify-content: center;
+    }
+
+    /* Restaura o layout original da lista de links */
+    .lista-navegacao {
+        position: static;
+        flex-direction: row;
+        height: auto;
+        width: auto;
+        background-color: transparent;
+        transform: translateX(0);
+        gap: 3rem;
+        padding: 10px 0;
+    }
+
+    .link-navegacao {
+        font-size: 1rem;
+        position: relative;
+    }
+
+    /* Efeito de sublinhado no hover */
+    .link-navegacao::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--cor-principal);
+        transition: transform 0.3s ease-out;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    .link-navegacao:hover::after,
+    .link-navegacao:focus::after {
+        transform: scaleX(1);
+    }
+
+    /* Ajustes no conteúdo principal para telas maiores */
+    .foto-de-perfil {
+        width: 450px;
+        height: 450px;
+    }
+
+    .titulo-perfil {
+        font-size: 2.5rem;
+    }
+
+    .texto-sobre {
+        max-width: 80%;
+    }
+}
+
+/* Telas Ultra-wide (a partir de 1920px) */
+@media screen and (min-width: 1920px) {
+    .foto-de-perfil {
+        width: 550px;
+        height: 550px;
+    }
+
+    .titulo-perfil {
+        font-size: 3.5rem;
+    }
+
+    /* Define uma largura máxima fixa para evitar linhas de texto muito longas */
+    .texto-sobre {
+        max-width: 1200px; 
+        font-size: 1.1rem;
+    }
+}
