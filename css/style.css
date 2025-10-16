@@ -21,7 +21,8 @@
 html {
     background-color: var(--cor-mais-escura);
     color: var(--cor-mais-clara);
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
 }
 
 /* --- NAVEGAÇÃO (MOBILE FIRST) --- */
@@ -113,6 +114,7 @@ html {
 /* --- CONTEÚDO PRINCIPAL (SOBRE) --- */
 
 .sobre {
+    padding-top: 80px;
     margin: 0 auto;
     padding: 10px 5%;
     display: flex;
@@ -155,6 +157,31 @@ html {
     color: var(--cor-principal);
     text-decoration: none;
     font-weight: bold;
+}
+
+.projetos{
+    display: grid;
+    grid-template-columns: (10rem,1fr);
+}
+
+.container-projetos{
+
+}
+
+.img-projetos{
+
+}
+
+.titulo-projeto{
+
+}
+
+.descricao-projeto{
+
+}
+
+.btn-projeto{
+
 }
 
 /* --- BREAKPOINTS RESPONSIVOS --- */
