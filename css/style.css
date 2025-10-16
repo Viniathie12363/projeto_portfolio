@@ -23,6 +23,7 @@ html {
     color: var(--cor-mais-clara);
     scroll-behavior: smooth;
     scroll-padding-top: 10rem;
+    animation: pulseBackground 10s infinite ease-in-out;
 }
 
 /* --- NAVEGAÇÃO (MOBILE FIRST) --- */
@@ -134,6 +135,8 @@ html {
     object-position: 50% 35%;
     border: 3px solid var(--cor-mais-clara);
     box-shadow: 5px 0px 32px 16px rgba(6, 6, 13, 0.27);
+    animation: fadeInUp 1s ease-out forwards;
+    animation: animacao_sobe_desce 7s ease-in-out infinite;
 }
 
 .titulo-perfil {
@@ -375,8 +378,8 @@ html {
 
     /* Ajustes no conteúdo principal para telas maiores */
     .foto-de-perfil {
-        width: 450px;
-        height: 450px;
+        width: 200px;
+        height: 200px;
     }
 
     .titulo-perfil {
@@ -393,8 +396,8 @@ html {
 /* Telas Ultra-wide (a partir de 1920px) */
 @media screen and (min-width: 1920px) {
     .foto-de-perfil {
-        width: 550px;
-        height: 550px;
+        width: 450px;
+        height: 450px;
     }
 
     .titulo-perfil {
@@ -405,5 +408,39 @@ html {
     .texto-sobre {
         max-width: 1200px; 
         font-size: 1.1rem;
+    }
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseBackground {
+    0% {
+        background-color: var(--cor-mais-escura); /* Cor inicial */
+    }
+    50% {
+        background-color: var(--cor-escura); /* Cor do meio da animação */
+    }
+    100% {
+        background-color: var(--cor-mais-escura); /* Volta para a cor inicial */
+    }
+}
+
+@keyframes animacao_sobe_desce {
+
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-10px);
     }
 }
