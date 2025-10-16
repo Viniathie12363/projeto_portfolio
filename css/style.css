@@ -199,7 +199,13 @@ html {
 
 .container-projetos:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); 
+    background-color: var(--cor-mais-clara);
+    transition: 0.8s linear;
+}
+
+.container-projetos:hover >*:not(.botao-projeto) {
+    color: var(--cor-mais-escura);    
 }
 
 .img-projetos {
@@ -241,6 +247,68 @@ html {
     background-color: var(--cor-clara);
 }
 
+.contato {
+    padding: 80px 5%;
+    background-color: var(--cor-escura);
+}
+
+.formulario {
+    width: 90%; /* Em telas pequenas (mobile), ocupa 90% da largura */
+    margin: 0 auto; /* Centraliza o formulário na seção */
+    display: flex;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    gap: 1rem; /* Espaço entre os elementos do formulário */
+}
+
+/* ... (as outras regras para label, input, textarea e botão continuam as mesmas) ... */
+.formulario label {
+    font-family: var(--fonte-cabecalho);
+    font-size: 1rem;
+    color: var(--cor-mais-clara);
+    margin-bottom: -5px;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--cor-mais-e);
+    border: 1px solid var(--cor-clara);
+    border-radius: 8px;
+    color: var(--cor-mais-clara);
+    font-size: 1rem;
+    font-family: var(--fonte-padrao);
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 10px var(--cor-principal);
+}
+
+.formulario textarea {
+    resize: vertical;
+}
+
+.botao-enviar {
+    padding: 15px 20px;
+    background-color: var(--cor-principal);
+    color: var(--cor-mais-clara);
+    font-family: var(--fonte-cabecalho);
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-enviar:hover {
+    background-color: var(--cor-clara);
+}
+
+
 /* --- BREAKPOINTS RESPONSIVOS --- */
 
 /* Telas de Tablet e Desktop (a partir de 769px) */
@@ -254,7 +322,11 @@ html {
 }
 
 @media screen and (min-width: 769px) {
-    
+
+    .formulario {
+        width: 80%; /* Ocupa 80% da tela */
+        max-width: 800px; /* E tem uma largura máxima para não ficar gigante */
+    }
     
     /* Esconde o botão hambúrguer */
     .menu-hamburguer {
