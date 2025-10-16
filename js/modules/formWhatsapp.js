@@ -8,7 +8,7 @@ export default function initFormWhatsapp() {
         event.preventDefault();
 
         // Insira seu número de telefone com o código do país (ex: 5511999998888)
-        const telefone = '5535999239894'; // <--- TROQUE PELO SEU NÚMERO
+        const telefone = '5535999999999'; // <--- TROQUE PELO SEU NÚMERO
 
         // Pega os valores dos campos do formulário
         const nome = document.querySelector('#nome').value;
